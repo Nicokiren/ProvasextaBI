@@ -1,12 +1,5 @@
 package questao1;
 
-/*
-    Representa o contexto complexo de dados financeiros.
-    DECISÃO DE DESIGN: Separar os dados da lógica de cálculo permite que
-    o mesmo conjunto de dados seja passado para diferentes estratégias
-    sem acoplamento.
-*/
-
 public class FinancialData {
     private double totalAssets;
     private double marketVolatility;

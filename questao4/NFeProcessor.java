@@ -3,9 +3,6 @@ package questao4;
 import java.util.Collections;
 import java.util.List;
 
-/*
-    Cliente que monta e executa a cadeia.
-*/
 
 public class NFeProcessor {
     private NFeValidator chain;
@@ -15,8 +12,7 @@ public class NFeProcessor {
     }
 
     private void buildChain() {
-        // Construção da cadeia conforme requisitos:
-        // 1 (XML) -> 2 (Cert) -> 3 (Tax - só se 2 ok) -> 4 (DB) -> 5 (Sefaz - só se anteriores ok)
+      
         this.chain = new XMLSchemaValidator();
         this.chain.setNext(new DigitalCertificateValidator())
                   .setNext(new TaxRulesValidator())
@@ -44,7 +40,7 @@ public class NFeProcessor {
 
     private void executeRollback(NFeDocument nfe, ValidationContext context) {
         List<NFeValidator> executed = context.getExecutedValidators();
-        // Executa rollback na ordem inversa
+       
         Collections.reverse(executed);
         for (NFeValidator validator : executed) {
             validator.rollback(nfe);

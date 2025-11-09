@@ -1,8 +1,5 @@
 package questao3;
 
-/*
-    Contexto: Mantém a referência para o estado atual da usina.
-*/
 
 public class NuclearReactorContext {
     private ReactorState currentState;
@@ -11,7 +8,7 @@ public class NuclearReactorContext {
     private double radiacao;
 
     public NuclearReactorContext() {
-        // Estado inicial
+       
         this.currentState = new DesligadaState();
     }
 
@@ -20,20 +17,17 @@ public class NuclearReactorContext {
         this.currentState = newState;
     }
 
-    public ReactorState getState() { // Adicionado getter para validações externas se necessário
-        return currentState;
+    public ReactorState getState() { 
+            return currentState;
     }
 
-    /*
-        Método chamado periodicamente para verificar se o estado deve mudar
-        com base nos sensores atuais.
-    */
+   
 
     public void monitor() {
         currentState.verificarAlteracaoEstado(this);
     }
 
-    // Getters e Setters para os sensores
+   
     public double getTemperatura() { return temperatura; }
     public void setTemperatura(double temperatura) { this.temperatura = temperatura; }
     public double getPressao() { return pressao; }

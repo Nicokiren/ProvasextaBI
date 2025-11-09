@@ -3,14 +3,12 @@ package questao4;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-    Mantém o estado da validação atual, incluindo erros e controle de circuit breaker.
-*/
+
 
 public class ValidationContext {
     private int failureCount = 0;
     private List<String> errors = new ArrayList<>();
-    // Pilha para rollback (Command pattern)
+    
     private List<NFeValidator> executedValidators = new ArrayList<>();
     private boolean fatalError = false;
 
@@ -21,7 +19,7 @@ public class ValidationContext {
     }
 
     public boolean shouldStopChain() {
-        // Circuit breaker: interrompe após 3 falhas
+       
         if (failureCount >= 3) {
             System.out.println("   [CTX] CIRCUIT BREAKER ATIVADO! Muitas falhas.");
             return true;

@@ -1,9 +1,5 @@
 package questao2;
 
-/*
-    Classe moderna para representar a resposta de forma limpa.
-    Usada para demonstrar a conversão "bidirecional" (retorno do legado para o moderno).
-*/
 
 public class TransacaoResponse {
     private boolean aprovado;
